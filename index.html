@@ -4,7 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#f7f8fc" />
+    <meta name="description" content="Thing helps you notice progress through small moments, shared with close friends." />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <title>Thing — Home</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="icon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -37,7 +42,7 @@
       </section>
 
       <section class="today-section" id="todaySection" aria-labelledby="todayHeading">
-        <div class="today-heading"><div><p class="section-kicker">AUGUST 15</p><h2 id="todayHeading">Today</h2></div><span id="todayCount">2 moments</span></div>
+        <div class="today-heading"><div><p class="section-kicker" id="todayDate">AUGUST 15</p><h2 id="todayHeading">Today</h2></div><span id="todayCount">2 moments</span></div>
         <div class="today-card" id="todayCard">
           <button class="today-moment" data-thing="Morning runs"><span class="today-time">7:42</span><span class="today-dot sage"></span><span><strong>Morning runs</strong><small>3.2 km before the city woke up.</small></span><em>›</em></button>
           <button class="today-moment" data-thing="Learn Spanish"><span class="today-time">8:20</span><span class="today-dot clay"></span><span><strong>Learn Spanish</strong><small>15 minutes · Lesson 18</small></span><em>›</em></button>
@@ -130,7 +135,7 @@
         <header class="moments-header"><div><p class="section-kicker">SHARED BY FRIENDS</p><h1>Moments</h1></div><button class="status-add" aria-label="发布 Moment">＋</button></header>
         <p class="circle-note"><span>●</span> Only Moments shared by your friends</p>
 
-        <article class="feed-card">
+        <article class="feed-card" data-feed-id="sophie-walk">
           <header><span class="people-avatar sophie">S</span><span><strong>Sophie</strong><small>Morning walks · 18 minutes ago</small></span></header>
           <p class="feed-text">The light was soft enough to make me slow down today.</p>
           <div class="feed-photo morning-light" role="img" aria-label="清晨散步时的柔和天空"></div>
@@ -140,7 +145,7 @@
           <form class="comment-form" hidden><input aria-label="留言" placeholder="Write something…" /><button>Send</button></form>
         </article>
 
-        <article class="feed-card">
+        <article class="feed-card" data-feed-id="jamie-guitar">
           <header><span class="people-avatar jamie">J</span><span><strong>Jamie</strong><small>Learning guitar · 1 hour ago</small></span></header>
           <p class="feed-text">The chord finally sounded clean. Tiny, but I heard the difference.</p>
           <div class="feed-thing"><span class="today-dot clay"></span><span><small>ADDING TO</small><strong>Learning guitar</strong></span><em>11 moments</em></div>
@@ -149,7 +154,7 @@
           <form class="comment-form" hidden><input aria-label="留言" placeholder="Write something…" /><button>Send</button></form>
         </article>
 
-        <article class="feed-card">
+        <article class="feed-card" data-feed-id="mira-soup">
           <header><span class="people-avatar mira">M</span><span><strong>Mira</strong><small>Cooking at home · Yesterday</small></span></header>
           <p class="feed-text">Made the soup my grandmother used to make. It almost tasted the same.</p>
           <div class="feed-photo soup-photo" role="img" aria-label="家里做的一碗汤"></div>
@@ -267,7 +272,7 @@
       <p class="section-kicker">A THING IN PROGRESS</p>
       <div class="detail-heading"><div><h2 id="detailTitle">Morning runs</h2><p id="detailSubtitle">18 moments · growing for 7 weeks</p></div><div class="stone stone-sage"><i></i><b></b></div></div>
       <div class="progress-line"><span></span></div><p class="progress-message">Not a streak. A shape made by returning.</p>
-      <div class="journey-list">
+      <div class="journey-list" id="journeyList">
         <article><time>YESTERDAY · 7:42 AM</time><strong>3.2 km before the city woke up.</strong><p>“风已经有一点秋天的味道。”</p></article>
         <article><time>AUG 12 · 8:10 AM</time><strong>A slower morning, still went.</strong><p>2.1 km · shared with Sophie</p></article>
         <article><time>AUG 8 · 6:55 AM</time><strong>The first cool breeze.</strong><p>3.6 km</p></article>
@@ -292,5 +297,6 @@
 
     <div class="toast" id="toast" role="status" aria-live="polite">Added. Another layer.</div>
     <script src="app.js"></script>
+    <script>if ('serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('./service-worker.js');</script>
   </body>
 </html>

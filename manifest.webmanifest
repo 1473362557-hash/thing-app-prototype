@@ -1,0 +1,12 @@
+{
+  "name": "Thing — A life in progress",
+  "short_name": "Thing",
+  "description": "Notice progress through small moments, shared with close friends.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f7f8fc",
+  "theme_color": "#f7f8fc",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
